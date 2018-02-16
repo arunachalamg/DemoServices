@@ -22,7 +22,7 @@ public class TestService {
 	CassandraQueryProvider cassandraQueryProvider;
 	
 	public List<String> process() throws Exception{
-		ResultSet rs =cassandraQueryProvider.executeSelectQuery("SELECT * FROM SHIPSRVC.SHIP_DETA_INVENTORY LIMIT 10");
+		ResultSet rs =cassandraQueryProvider.executeSelectQuery("SELECT * FROM INVENTORY LIMIT 10");
 		List<String> list = new ArrayList<String>();
 		for(Row r : rs.all()) {
 				list.add(r.getString("id") +" : " + r.getString("Name"));
