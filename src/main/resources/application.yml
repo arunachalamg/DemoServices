@@ -1,0 +1,20 @@
+server:
+  port: 8080
+  context-path: /gpc-demo
+  accesslog:
+    directory: /var/log/java-app
+    prefix: access
+    suffix: .log
+    pattern: "%A %h %l %u %t '%r' %s %b %D"
+
+cassandra:
+  hosts: 10.52.32.225
+  port: 9042
+  keyspace: test
+  connectionpool: 10
+  consistencyLevel: LOCAL_QUORUM
+  username: testusr
+  password: testuserpwd
+  maxconn: 100
+  connecttimeout: 5000
+  maxreqperconn: 1000
