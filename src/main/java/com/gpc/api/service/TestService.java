@@ -11,7 +11,7 @@ import com.datastax.driver.core.Row;
 import com.gpc.api.framework.conn.CassandraQueryProvider;
 
 /**
- * 
+ * Service process
  * @author Arunachalam Govindasamy
  *
  */
