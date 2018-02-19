@@ -31,7 +31,11 @@ public class TestController {
 	@Autowired
 	PubSubMessageProvider pubSubMessageProvider;
 	
-	
+	/**
+	 * Greeting Services
+	 * @return
+	 * @throws Exception
+	 */
 	@RequestMapping(value = "/greetings", method = RequestMethod.GET, produces = { MediaType.APPLICATION_JSON_VALUE })
 	public ResponseEntity<List<String>> Greeting() throws Exception {
 		System.out.println("greetings...");
@@ -40,7 +44,7 @@ public class TestController {
 		
 	}
 	
-	@RequestMapping(value = "/myPunSub", method = RequestMethod.GET, produces = { MediaType.APPLICATION_JSON_VALUE })
+	@RequestMapping(value = "/myPubSub", method = RequestMethod.GET, produces = { MediaType.APPLICATION_JSON_VALUE })
 	public ResponseEntity<List<ReceivedMessage>> pubsunMessaging() throws Exception {
 		System.out.println("pubsub...");
 		List<ReceivedMessage> list = pubSubMessageProvider.pullMessagesFromSubscription("projects/as-arung-test/subscriptions/testing-rithvik");
