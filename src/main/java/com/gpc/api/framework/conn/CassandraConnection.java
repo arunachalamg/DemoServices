@@ -82,7 +82,7 @@ public class CassandraConnection {
          return builder.build();
     }
     /**
-     * Creates and returns the Cassandra {@link Session}
+     * Creates and returns the Cassandra session
      *
      * @param cluster the {@link Cluster}
      * @return the new {@link Session}
@@ -110,9 +110,7 @@ public class CassandraConnection {
     /**
      * This method sets all the builder options like pooling options, query
      * options
-     *
-     * @param builder       the {@link ClusterBuilder}
-     * @param daoProperties the {@link DAOProperties}
+     * 
      */
     private void getBuilderOptions(Cluster.Builder builder) {
         // set the query options
@@ -133,11 +131,9 @@ public class CassandraConnection {
 
    
     /**
-     * This method sets the various pooling options during connection. few
-     * options are 1. Max number of connection pool 2. Connection timeout in
-     * milliseconds
-     *
-     * @param daoProperties the {@link DAOProperties}
+     * This method sets the various pooling options during connection. 
+     * 1. Max number of connection pool 
+     * 2. Connection timeout in milliseconds
      * @return the {@link PoolingOptions}
      */
     private PoolingOptions setPoolingOptions() {
