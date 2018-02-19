@@ -38,7 +38,7 @@ public class CassandraConnection {
 	/**
 	 * This would help to hold a single instance for connection manager.
 	 */
-    @Bean
+   // @Bean
 	public boolean initilizeCassandraConnection() {
 		cluster = buildCluster();
 		session = connectSession(cluster);

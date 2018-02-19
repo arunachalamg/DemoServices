@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.datastax.driver.core.ResultSet;
-import com.datastax.driver.core.Row;
+import com.google.api.services.pubsub.model.ReceivedMessage;
+import com.gpc.api.google.pubsub.PubSubMessageProvider;
 import com.gpc.api.service.TestService;
 
 
@@ -28,10 +28,28 @@ public class TestController {
 	@Autowired
 	TestService testService;
 	
+	@Autowired
+	PubSubMessageProvider pubSubMessageProvider;
+	
+	
 	@RequestMapping(value = "/greetings", method = RequestMethod.GET, produces = { MediaType.APPLICATION_JSON_VALUE })
 	public ResponseEntity<List<String>> Greeting() throws Exception {
 		System.out.println("greetings...");
 		List<String> list = testService.process();
+		return new ResponseEntity<>(list,HttpStatus.OK);
+		
+	}
+	
+	@RequestMapping(value = "/myPunSub", method = RequestMethod.GET, produces = { MediaType.APPLICATION_JSON_VALUE })
+	public ResponseEntity<List<ReceivedMessage>> pubsunMessaging() throws Exception {
+		System.out.println("pubsub...");
+		List<ReceivedMessage> list = pubSubMessageProvider.pullMessagesFromSubscription("projects/as-arung-test/subscriptions/testing-rithvik");
+		if(null == list || list.isEmpty()) {
+			list = new ArrayList<ReceivedMessage>();
+			ReceivedMessage rm = new ReceivedMessage();
+			rm.set("status", "No sunscription message is available at this movement.");
+			list.add(rm);
+		}
 		return new ResponseEntity<>(list,HttpStatus.OK);
 		
 	}
