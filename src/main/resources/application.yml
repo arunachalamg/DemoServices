@@ -18,3 +18,12 @@ cassandra:
   maxconn: 100
   connecttimeout: 5000
   maxreqperconn: 1000
+
+http-connection:
+  connpoolTimeout: 200
+  connpoolReadTimeout: 5000
+  connpoolSocketTimeout: 5000
+  connpoolMaxConnection: 1000
+  connpoolMaxConnectionPerRoute: 200
+  connpoolKeepAliveInactive: 2000
+  

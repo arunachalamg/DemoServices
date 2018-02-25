@@ -85,10 +85,25 @@
 		    <artifactId>google-api-services-pubsub</artifactId>
 		    <version>v1-rev376-1.23.0</version>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.google.cloud/google-cloud-datastore -->
+		<dependency>
+		    <groupId>com.google.cloud</groupId>
+		    <artifactId>google-cloud-datastore</artifactId>
+		    <version>1.0.0-rc1</version>
+		</dependency>
+		<dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>18.0</version>
+        </dependency>
 		<dependency>
 			<groupId>commons-collections</groupId>
 			<artifactId>commons-collections</artifactId>
 		</dependency>
+		 <dependency>
+            <groupId>com.sendgrid</groupId>
+            <artifactId>sendgrid-java</artifactId>
+        </dependency>
 	</dependencies>
 
 	<build>
