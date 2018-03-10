@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.google.api.services.pubsub.model.ReceivedMessage;
 import com.gpc.api.google.datastore.DataStoreProvider;
+import com.gpc.api.google.mysql.CloudSqlProvider;
 import com.gpc.api.google.pubsub.PubSubMessageProvider;
 import com.gpc.api.service.TestService;
 
@@ -34,6 +35,9 @@ public class TestController {
 	
 	@Autowired
 	DataStoreProvider dataStoreProvider;
+	
+	@Autowired
+	CloudSqlProvider cloudSqlProvider;
 	
 	/**
 	 * Greeting Services
@@ -73,5 +77,17 @@ public class TestController {
 		dataStoreProvider.listData();
 		return new ResponseEntity<>(new ArrayList(),HttpStatus.OK);
 		
+	}
+	
+	/**
+	 * Greeting Services
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping(value = "/cloudsqltest", method = RequestMethod.GET, produces = { MediaType.APPLICATION_JSON_VALUE })
+	public ResponseEntity<List<String>> cloudsqltest() throws Exception {
+		System.out.println("cloudsqltest.....");
+		List<String> list = cloudSqlProvider.getData();
+		return new ResponseEntity<>(list,HttpStatus.OK);
 	}
 }
