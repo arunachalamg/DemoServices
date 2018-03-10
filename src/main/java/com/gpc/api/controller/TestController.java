@@ -84,7 +84,7 @@ public class TestController {
 	 * @return
 	 * @throws Exception
 	 */
-	@RequestMapping(value = "/cloudsqltest", method = RequestMethod.GET, produces = { MediaType.APPLICATION_JSON_VALUE })
+	@RequestMapping(value = "/cloudsql", method = RequestMethod.GET, produces = { MediaType.APPLICATION_JSON_VALUE })
 	public ResponseEntity<List<String>> cloudsqltest() throws Exception {
 		System.out.println("cloudsqltest.....");
 		List<String> list = cloudSqlProvider.getData();
